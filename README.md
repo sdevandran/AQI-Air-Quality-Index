@@ -4,7 +4,7 @@ Download and store the Air Quality Index Dataset as csv using python with the ap
 [National Air Quality Index](https://app.cpcbccr.com/AQI_India)
 
 ### How to use ? ###
-* Set Hour, Year, Month, Starting and ending day of the month in `aqi.py` file
+* Set Hour, Year, Month, Starting and ending day of the month in `AQI.py` file
 ```
 hour = 15
 year = 2020
@@ -14,6 +14,6 @@ e = 0 or monthrange(year, month)[1]
 ```
 * Run the script
 ```
-py aqi.py
+py AQI.py
 ```
-* After retrieval it will saved as `aqi.csv` for given period of time (check the above sample `aqi.csv`)
+* After retrieval it will saved as `aqi.csv` for given period of time (check the above sample `AQI.csv`)
