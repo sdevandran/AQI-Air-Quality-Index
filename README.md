@@ -16,5 +16,6 @@ e = 0 or monthrange(year, month)[1]
 ```
 py AQI.py
 ```
-* After retrieval it will saved as `aqi.csv` for given period of time
-(check the above sample `AQI.csv`)
+* After retrieval it will saved as `AQI.csv` for given period of time
+
+(check the above `AQI.csv`)
