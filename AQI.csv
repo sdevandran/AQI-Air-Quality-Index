@@ -1,0 +1,11 @@
+state,city,station,date,time,PM2.5,PM10,NO2,NH3,SO2,CO,OZONE,AQI,Predominant_Parameter
+Delhi,Delhi,"Alipur, Delhi - DPCC","01/04/2020","03:00:00 PM",200,141,49,5,35,55,49,76,PM10
+Delhi,Delhi,"Alipur, Delhi - DPCC","02/04/2020","03:00:00 PM",98,97,46,5,25,50,46,70,PM10
+Delhi,Delhi,"Alipur, Delhi - DPCC","03/04/2020","03:00:00 PM",193,131,47,5,25,50,60,69,PM10
+Delhi,Delhi,"Alipur, Delhi - DPCC","04/04/2020","03:00:00 PM",223,159,56,6,32,75,60,93,PM10
+Delhi,Delhi,"Alipur, Delhi - DPCC","05/04/2020","03:00:00 PM",309,190,83,6,31,75,66,118,PM2.5
+Delhi,Delhi,"Alipur, Delhi - DPCC","06/04/2020","03:00:00 PM",325,222,61,8,55,90,66,190,PM2.5
+Delhi,Delhi,"Alipur, Delhi - DPCC","07/04/2020","03:00:00 PM",187,158,51,6,31,60,54,102,PM10
+Delhi,Delhi,"Alipur, Delhi - DPCC","08/04/2020","03:00:00 PM",120,123,50,5,41,45,53,94,PM10
+Delhi,Delhi,"Alipur, Delhi - DPCC","09/04/2020","03:00:00 PM",217,149,48,5,49,50,61,83,PM10
+Delhi,Delhi,"Alipur, Delhi - DPCC","10/04/2020","03:00:00 PM",240,201,79,6,36,60,66,121,PM10
