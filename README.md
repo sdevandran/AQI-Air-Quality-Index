@@ -1,6 +1,6 @@
 # AQI Air Quality Index
 ### About ###
-Download and store the Air Quality Index Dataset as csv using python with the apis used in
+Download and store the Air Quality Index Dataset as csv using Python with the apis used in
 [National Air Quality Index](https://app.cpcbccr.com/AQI_India)
 
 ### How to use ? ###
