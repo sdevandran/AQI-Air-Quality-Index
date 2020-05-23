@@ -20,19 +20,23 @@ response = requests.post(
     'https://app.cpcbccr.com/aqi_dashboard/aqi_station_all_india', data='e30=', verify='')
 for j in [i['stationsInCity'] for i in response.json()['stations']]:
     for k in j:
-        id = k['id']
-        for i in list(range(s, e + 1)):
-            en = '{' + f'"station_id":"{id}","date":"{year}-{month}-{i}T{hour}:00:00Z"' + '}'
-            en = base64.b64encode(en.encode()).decode()
-            response = requests.post(
-                'https://app.cpcbccr.com/aqi_dashboard/aqi_all_Parameters', data=en, verify='')
-            m = response.json()
-            d = datetime.strptime(m['date'], "%A, %d %b %Y %I:%M %p")
-            a = [str(n['max']) for n in m['metrics']]
-            if m['aqi'] and len(a) == 7 and '-' not in a:
-                print(f'{k["stateID"]},{k["cityID"]},"{k["name"]}","{d.strftime("%d/%m/%Y")}","{d.strftime("%I:%M:%S %p")}",{",".join(a)},{m["aqi"]["value"]},{m["aqi"]["param"]}')
-                print(f'{k["stateID"]},{k["cityID"]},"{k["name"]}","{d.strftime("%d/%m/%Y")}","{d.strftime("%I:%M:%S %p")}",{",".join(a)},{m["aqi"]["value"]},{m["aqi"]["param"]}', file=out)
-            else:
-                print('error : No Data Available or Insufficient data for', id, k['stateID'],
-                      k['cityID'], k['name'], m['title'], d)
+        # if k['stateID'] == 'Delhi':
+            id = k['id']
+            for i in list(range(s, e + 1)):
+                en = '{' + f'"station_id":"{id}","date":"{year}-{month}-{i}T{hour}:00:00Z"' + '}'
+                en = base64.b64encode(en.encode()).decode()
+                response = requests.post(
+                    'https://app.cpcbccr.com/aqi_dashboard/aqi_all_Parameters', data=en, verify='')
+                m = response.json()
+                d = datetime.strptime(m['date'], "%A, %d %b %Y %I:%M %p")
+                a = {'PM2.5': '0', 'PM10': '0', 'NO2': '0',
+                     'NH3': '0', 'SO2': '0', 'CO': '0', 'OZONE': '0'}
+                for n in m['metrics']:
+                    a[n['name']] = str(n['max'])
+                if m['aqi'] and '-' not in a.values():
+                    print(f'{k["stateID"]},{k["cityID"]},"{k["name"]}","{d.strftime("%d/%m/%Y")}","{d.strftime("%I:%M:%S %p")}",{",".join(a.values())},{m["aqi"]["value"]},{m["aqi"]["param"]}')
+                    print(f'{k["stateID"]},{k["cityID"]},"{k["name"]}","{d.strftime("%d/%m/%Y")}","{d.strftime("%I:%M:%S %p")}",{",".join(a.values())},{m["aqi"]["value"]},{m["aqi"]["param"]}', file=out)
+                else:
+                    print('error : No Data Available or Insufficient data for', id, k['stateID'],
+                          k['cityID'], k['name'], m['title'], d)
 out.close()
