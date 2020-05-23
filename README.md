@@ -12,6 +12,10 @@ month = 4
 s = 1
 e = 0 or monthrange(year, month)[1]
 ```
+* Uncomment set the State Name at ```line 23``` for that state Dataset only
+```
+if k['stateID'] == 'Delhi':
+```
 * Run the script
 ```
 py AQI.py
