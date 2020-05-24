@@ -29,8 +29,8 @@ for j in [i['stationsInCity'] for i in response.json()['stations']]:
                     'https://app.cpcbccr.com/aqi_dashboard/aqi_all_Parameters', data=en, verify='')
                 m = response.json()
                 d = datetime.strptime(m['date'], "%A, %d %b %Y %I:%M %p")
-                a = {'PM2.5': '0', 'PM10': '0', 'NO2': '0',
-                     'NH3': '0', 'SO2': '0', 'CO': '0', 'OZONE': '0'}
+                a = {'PM2.5': 'NA', 'PM10': 'NA', 'NO2': 'NA',
+                     'NH3': 'NA', 'SO2': 'NA', 'CO': 'NA', 'OZONE': 'NA'}
                 for n in m['metrics']:
                     a[n['name']] = str(n['max'])
                 if m['aqi'] and '-' not in a.values():
